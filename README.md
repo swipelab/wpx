@@ -24,6 +24,7 @@ This project is a docker compose installation of a single site WordPress instanc
 - [Stop and remove](#stop-and-remove) - clear all files associated with running the site
 - [Optional configuration](#opt-config) - additional options for deploying your site
 - [Debugging tips](#debug) - basic tips for debugging your site when something goes wrong
+- [Setup Linux VM](#vm) - prepare a linux machine with prerequisites 
 - [Example deployment](MJSTEALEY.md) - full example deployment to [https://mjstealey.com/](https://mjstealey.com/)
 
 ## <a name="tldr"></a>TL;DR
@@ -601,3 +602,46 @@ TODO:
 container logs
 
 permissions
+
+
+## <a name="vm"></a> Linux VM
+
+If you are to start from a minimal linux distro here a few steps to follow
+
+### ssh into the machine
+
+:D
+
+### Install Docker Engine
+
+```sh
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+```
+
+#### Set docker as non-root user
+
+```sh
+sudo usermod -aG docker your-user
+```
+
+### Install Docker Compose
+
+```sh
+sudo curl -L "https://github.com/docker/compose/releases/download/1.26.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
+
+# check instalation
+docker-compose --version
+```
+
+### Install Git
+```sh
+sudo apt update
+sudo apt install -y git
+
+# check installation
+git --version
+```
+
