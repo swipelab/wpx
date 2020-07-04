@@ -47,6 +47,7 @@ services:
 
   adminer:
     image: adminer
+    container_name: adminer
     restart: always
     links:
       - mysql
